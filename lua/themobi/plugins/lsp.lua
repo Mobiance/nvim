@@ -19,7 +19,7 @@ return {
     -- Autocompletion
     {
         'hrsh7th/nvim-cmp',
-        event = 'InsertEnter',
+        event = 'BufEnter',
         dependencies = {
             { 'L3MON4D3/LuaSnip' },
             { 'hrsh7th/cmp-buffer' },
