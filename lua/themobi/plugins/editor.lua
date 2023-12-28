@@ -59,5 +59,15 @@ return {
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
         },
-    }
+    },
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("refactoring").setup()
+        end,
+    },
 }
