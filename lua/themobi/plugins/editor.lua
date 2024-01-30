@@ -6,6 +6,14 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
+        "jiaoshijie/undotree",
+        dependencies = "nvim-lua/plenary.nvim",
+        config = true,
+        keys = {
+            { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
+        },
+    },
+    {
         'nvim-treesitter/nvim-treesitter',
         build = ":TSUpdate"
     },
@@ -15,10 +23,6 @@ return {
         branch = "harpoon2",
         requires = { { "nvim-lua/plenary.nvim" } }
 
-    },
-    {
-        'mbbill/undotree',
-        event = "VeryLazy"
     },
     {
         'tpope/vim-fugitive',
@@ -58,6 +62,7 @@ return {
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        event = "VeryLazy",
         opts = {
             -- your configuration comes here
             -- or leave it empty to use the default settings
