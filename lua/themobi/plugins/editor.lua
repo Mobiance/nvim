@@ -26,7 +26,7 @@ return {
     },
     {
         'tpope/vim-fugitive',
-        event = "VeryLazy"
+        event = "BufEnter"
     },
     {
         'tpope/vim-vinegar',
@@ -34,7 +34,7 @@ return {
     },
     {
         "folke/flash.nvim",
-        event = "VeryLazy",
+        event = "BufRead",
         ---@type Flash.Config
         opts = {},
         -- stylua: ignore
@@ -48,7 +48,7 @@ return {
     },
     {
         "folke/which-key.nvim",
-        event = "VeryLazy",
+        event = "BufEnter",
         init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
@@ -62,7 +62,7 @@ return {
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        event = "VeryLazy",
+        event = "BufRead",
         opts = {
             -- your configuration comes here
             -- or leave it empty to use the default settings

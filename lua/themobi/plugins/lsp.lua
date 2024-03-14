@@ -19,11 +19,16 @@ return {
     -- Autocompletion
     {
         'hrsh7th/nvim-cmp',
-        event = 'InsertEnter',
+        event = { 'InsertEnter', 'CmdlineEnter' },
         dependencies = {
-            { 'L3MON4D3/LuaSnip' },
+            {
+                'L3MON4D3/LuaSnip',
+                version = "v2.*",
+                dependencies = { "rafamadriz/friendly-snippets" }
+            },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-cmdline' }
         },
         config = function()
@@ -36,8 +41,19 @@ return {
             local cmp = require('cmp')
             local cmp_select = { behavior = cmp.SelectBehavior.Select }
             local cmp_action = lsp_zero.cmp_action()
+            require('luasnip.loaders.from_vscode').lazy_load()
 
             cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        require 'luasnip'.lsp_expand(args.body)
+                    end
+                },
+                sources = {
+                    { name = 'nvim_lsp' },
+                    { name = 'luasnip' },
+                    { name = 'path' },
+                },
                 formatting = lsp_zero.cmp_format(),
                 mapping = cmp.mapping.preset.insert({
                     ['<C-Space>'] = cmp.mapping.complete(),
