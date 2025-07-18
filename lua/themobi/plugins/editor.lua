@@ -29,10 +29,6 @@ return {
         event = "BufEnter"
     },
     {
-        'tpope/vim-vinegar',
-        lazy = false
-    },
-    {
         "folke/flash.nvim",
         event = "BufRead",
         ---@type Flash.Config
@@ -69,4 +65,13 @@ return {
             -- refer to the configuration section below
         },
     },
+    {
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type oil.SetupOpts
+        opts = {},
+        -- Optional dependencies
+        dependencies = { { "echasnovski/mini.icons", opts = {} } },
+        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    }
 }

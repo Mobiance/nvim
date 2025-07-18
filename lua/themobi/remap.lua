@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -37,3 +37,13 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+-- Pane navigation remaps
+
+vim.keymap.set('n', '<A-h>', '<C-w>h', { desc = 'Move to left pane' })
+vim.keymap.set('n', '<A-j>', '<C-w>j', { desc = 'Move to bottom pane' })
+vim.keymap.set('n', '<A-k>', '<C-w>k', { desc = 'Move to top pane' })
+vim.keymap.set('n', '<A-l>', '<C-w>l', { desc = 'Move to right pane' })
+
+-- Split panes
+vim.keymap.set('n', '<leader>hs', ':split<CR>', { desc = 'Split horizontal' })
+vim.keymap.set('n', '<leader>vs', ':vsplit<CR>', { desc = 'Split vertical' })
